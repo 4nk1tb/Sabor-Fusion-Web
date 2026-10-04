@@ -1,597 +1,458 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabor Fusión - El Arte del Sushi Cubano</title>
-    <meta name="description" content="Descubre la innovadora fusión de la cocina cubana y japonesa. Sabor Fusión te ofrece una experiencia culinaria inolvidable con los ingredientes más frescos y un toque caribeño.">
-    <meta name="keywords" content="sushi cubano, restaurante, fusión, comida japonesa, comida cubana, La Habana, reserva online">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Dancing Script for titles, Inter for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- ScrollReveal JS for animations -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Sabor Fusión | Sushi cubano en La Habana</title>
+    <meta name="description" content="Donde el Caribe se encuentra con Japón. Sushi cubano en La Habana: rolls fusión con frutas tropicales, pescado fresco de nuestras costas y reservas por WhatsApp.">
+    <meta name="theme-color" content="#0b0809">
+    <link rel="canonical" href="https://sabor-fusion-web.pages.dev/">
 
-    <style>
-        /* Custom styles for typography and theme */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-        }
-        .font-title {
-            font-family: 'Dancing Script', cursive;
-        }
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            filter: brightness(0.4);
-        }
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #f59e0b; /* Amber-500 */
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-        .menu-tab.active {
-            background-color: #f59e0b;
-            color: #0a0a0a;
-        }
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-        .gallery-item .gallery-text {
-            transform: translateY(20px);
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-        .gallery-item:hover .gallery-text {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1f1f1f;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #f59e0b;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #d97706;
-        }
-        /* Loading spinner */
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #f59e0b;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Sabor Fusión">
+    <meta property="og:title" content="Sabor Fusión | Sushi cubano en La Habana">
+    <meta property="og:description" content="Donde el Caribe se encuentra con Japón. Rolls fusión, menú digital y reservas por WhatsApp.">
+    <meta property="og:url" content="https://sabor-fusion-web.pages.dev/">
+    <meta property="og:image" content="https://sabor-fusion-web.pages.dev/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Rolls de sushi fusión sobre una mesa frente al Malecón de La Habana al atardecer, con ramas de cerezo en flor">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" media="(max-width: 767px)" imagesrcset="img/hero-m-768.webp 768w, img/hero-m-1152.webp 1152w" imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" media="(min-width: 768px)" imagesrcset="img/hero-d-1280.webp 1280w, img/hero-d-2048.webp 2048w" imagesizes="100vw" fetchpriority="high">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>document.documentElement.classList.add('js');</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Sabor Fusión",
+        "description": "Sushi cubano: fusión de la cocina japonesa con ingredientes y sabores del Caribe.",
+        "url": "https://sabor-fusion-web.pages.dev/",
+        "servesCuisine": ["Sushi", "Cubana", "Japonesa", "Fusión"],
+        "priceRange": "$$",
+        "hasMenu": "https://sabor-fusion-web.pages.dev/#menu",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Fusión 123",
+            "addressLocality": "Vedado, La Habana",
+            "addressCountry": "CU"
+        },
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "12:00",
+            "closes": "23:00"
+        }]
+    }
+    </script>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-transparent">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-4xl font-title text-white">Sabor Fusión</a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="nav-link text-white hover:text-amber-500">Sobre Nosotros</a>
-                <a href="#menu" class="nav-link text-white hover:text-amber-500">Menú</a>
-                <a href="#gallery" class="nav-link text-white hover:text-amber-500">Galería</a>
-                <a href="#contact" class="nav-link text-white hover:text-amber-500">Contacto</a>
-            </div>
-            <a href="#reservations" class="hidden md:block bg-amber-500 text-black font-bold py-2 px-6 rounded-full hover:bg-amber-600 transition duration-300 transform hover:scale-105">Reservar</a>
-            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl z-50">
-                <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90 absolute top-0 left-0 w-full h-screen">
-            <div class="flex flex-col items-center justify-center h-full space-y-8">
-                <a href="#about" class="nav-link-mobile text-white text-2xl">Sobre Nosotros</a>
-                <a href="#menu" class="nav-link-mobile text-white text-2xl">Menú</a>
-                <a href="#gallery" class="nav-link-mobile text-white text-2xl">Galería</a>
-                <a href="#contact" class="nav-link-mobile text-white text-2xl">Contacto</a>
-                <a href="#reservations" class="bg-amber-500 text-black font-bold py-3 px-8 rounded-full text-xl mt-4">Reservar</a>
-            </div>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ============ CABECERA ============ -->
+<header class="site-header" id="site-header">
+    <a class="brand" href="#top" aria-label="Sabor Fusión, ir al inicio">
+        <span class="seal" aria-hidden="true">SF</span>
+        <span class="brand__name">Sabor Fusión</span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+        <a href="#about" data-nav>Sobre nosotros</a>
+        <a href="#menu" data-nav>Menú</a>
+        <a href="#gallery" data-nav>Galería</a>
+        <a href="#contact" data-nav>Contacto</a>
+    </nav>
+
+    <div class="header__actions">
+        <a class="btn btn--gold btn--sm header__cta" href="#reservations">Reservar</a>
+        <button class="burger" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú de navegación">
+            <span class="burger__bars" aria-hidden="true"><i></i><i></i></span>
+        </button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Menú móvil">
+        <a href="#about" data-menu-link>Sobre nosotros</a>
+        <a href="#menu" data-menu-link>Menú</a>
+        <a href="#gallery" data-menu-link>Galería</a>
+        <a href="#contact" data-menu-link>Contacto</a>
+    </nav>
+    <a class="btn btn--gold btn--lg" href="#reservations" data-menu-link>Reservar mesa</a>
+</div>
+
+<main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__bg" aria-hidden="true">
+            <picture>
+                <source media="(max-width: 767px)" srcset="img/hero-m-768.webp 768w, img/hero-m-1152.webp 1152w" sizes="100vw">
+                <img src="img/hero-d-1280.webp" srcset="img/hero-d-1280.webp 1280w, img/hero-d-2048.webp 2048w" sizes="100vw" width="2048" height="1152" alt="" fetchpriority="high" decoding="async">
+            </picture>
         </div>
-    </header>
+        <div class="hero__shade" aria-hidden="true"></div>
+        <canvas class="hero__petals" id="petals" aria-hidden="true"></canvas>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-        <video autoplay loop muted playsinline class="hero-video">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-sushi-rolls-being-prepared-40286-large.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-        </video>
-        <div class="z-10 bg-black bg-opacity-30 p-8 rounded-lg">
-            <h1 class="text-6xl md:text-8xl font-title mb-4 animate-fade-in-down">Sabor Fusión</h1>
-            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up">Donde el Caribe se encuentra con Japón.</p>
-            <a href="#menu" class="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105 animate-pulse">Ver el Menú</a>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="py-20 bg-black">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="reveal-left">
-                    <img src="https://placehold.co/600x800/1a1a1a/e0e0e0?text=Nuestro+Ambiente" alt="Interior del restaurante Sabor Fusión" class="rounded-lg shadow-2xl w-full h-auto object-cover">
-                </div>
-                <div class="reveal-right">
-                    <h2 class="text-5xl font-title text-amber-500 mb-6">Nuestra Historia</h2>
-                    <p class="mb-4 text-lg">En el corazón de La Habana, nace Sabor Fusión, un concepto culinario que rompe barreras. Somos pioneros en la creación del sushi cubano, una audaz combinación de la disciplina y elegancia de la cocina japonesa con la pasión, el color y el sabor inconfundible del Caribe.</p>
-                    <p class="mb-4">Nuestra misión es llevarte a un viaje de sabores inesperados. Utilizamos pescado fresco de nuestras costas, frutas tropicales y especias criollas para reinventar los rollos de sushi clásicos. Cada bocado es una celebración, una fiesta para el paladar.</p>
-                    <p class="font-semibold">Ven y vive la experiencia que está redefiniendo la gastronomía en Cuba.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-5xl font-title text-amber-500 mb-4 reveal-fade">Nuestro Menú</h2>
-            <p class="max-w-2xl mx-auto mb-12 reveal-fade">Explora nuestras creaciones únicas, preparadas con los ingredientes más frescos y un toque de magia cubana.</p>
-            
-            <div id="menu-tabs" class="flex justify-center space-x-2 md:space-x-4 mb-10 reveal-fade">
-                <button class="menu-tab active px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition" data-target="fusion">Rolls Fusión</button>
-                <button class="menu-tab px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition" data-target="clasicos">Clásicos</button>
-                <button class="menu-tab px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition" data-target="bebidas">Bebidas</button>
-            </div>
-
-            <div id="menu-content" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Content will be dynamically inserted here by JavaScript -->
-            </div>
-
-            <!-- Gemini Feature: Roll Creator -->
-            <div id="roll-creator" class="mt-20 bg-black p-8 md:p-12 rounded-lg shadow-2xl max-w-3xl mx-auto reveal-fade">
-                <h3 class="text-4xl font-title text-amber-500 mb-4 text-center">Crea tu Propio Roll Fusión</h3>
-                <p class="text-center mb-6">¿Te sientes creativo? Dinos tus ingredientes favoritos (ej: mango, cerdo asado, aguacate) y nuestra IA diseñará un roll único para ti.</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <input type="text" id="ingredient-input" placeholder="Ingredientes..." class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                    <button id="generate-roll-btn" class="bg-amber-500 text-black font-bold py-3 px-8 rounded-full hover:bg-amber-600 transition duration-300 transform hover:scale-105 whitespace-nowrap">✨ Crear Roll</button>
-                </div>
-                <p class="text-sm text-gray-400 mt-4">Por un coste adicional, nuestros chefs pueden convertir tu idea en una obra maestra culinaria, creando un roll personalizado solo para ti.</p>
-                <div id="roll-creator-result" class="mt-6 text-left p-6 bg-gray-900 rounded-lg min-h-[100px]">
-                    <!-- Generated roll will appear here -->
-                    <p class="text-gray-500">Tu creación aparecerá aquí...</p>
-                </div>
+        <div class="hero__content">
+            <p class="eyebrow hero__eyebrow">Sushi cubano en La Habana</p>
+            <h1 class="hero__title" id="hero-title">
+                <span class="hero__word">Sabor</span>
+                <span class="hero__word"><em>Fusión</em></span>
+            </h1>
+            <p class="hero__lead">Donde el Caribe se encuentra con Japón.</p>
+            <div class="hero__cta">
+                <a class="btn btn--gold btn--lg" href="#reservations">Reservar mesa</a>
+                <a class="btn btn--ghost btn--lg" href="#menu">Ver el menú</a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-black">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-5xl font-title text-amber-500 mb-12 reveal-fade">Galería de Sabores</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg cursor-pointer reveal-zoom">
-                    <img src="https://placehold.co/600x600/f59e0b/0a0a0a?text=Sushi+Plátano" alt="Sushi con plátano maduro" class="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110">
-                    <div class="gallery-text absolute bottom-0 left-0 p-4 text-white"><h3 class="font-bold">Roll Habana</h3></div>
-                </div>
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg cursor-pointer reveal-zoom col-span-2">
-                    <img src="https://placehold.co/1200x600/f59e0b/0a0a0a?text=Variedad+de+Sushi" alt="Variedad de sushi cubano" class="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110">
-                    <div class="gallery-text absolute bottom-0 left-0 p-4 text-white"><h3 class="font-bold">Nuestra Selección</h3></div>
-                </div>
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg cursor-pointer reveal-zoom">
-                    <img src="https://placehold.co/600x600/f59e0b/0a0a0a?text=Cóctel+Mojito" alt="Cóctel Mojito" class="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110">
-                     <div class="gallery-text absolute bottom-0 left-0 p-4 text-white"><h3 class="font-bold">Mojito Fusión</h3></div>
-                </div>
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg cursor-pointer reveal-zoom col-span-2">
-                     <img src="https://placehold.co/1200x600/f59e0b/0a0a0a?text=Ambiente+del+Restaurante" alt="Ambiente del restaurante" class="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110">
-                     <div class="gallery-text absolute bottom-0 left-0 p-4 text-white"><h3 class="font-bold">Noches Mágicas</h3></div>
-                </div>
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg cursor-pointer reveal-zoom">
-                    <img src="https://placehold.co/600x600/f59e0b/0a0a0a?text=Detalle+de+Sushi" alt="Detalle de un rollo de sushi" class="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110">
-                    <div class="gallery-text absolute bottom-0 left-0 p-4 text-white"><h3 class="font-bold">Arte Culinario</h3></div>
-                </div>
-                 <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg cursor-pointer reveal-zoom">
-                    <img src="https://placehold.co/600x600/f59e0b/0a0a0a?text=Ingredientes+Frescos" alt="Ingredientes frescos" class="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110">
-                     <div class="gallery-text absolute bottom-0 left-0 p-4 text-white"><h3 class="font-bold">Frescura Garantizada</h3></div>
-                </div>
+    <!-- ============ SOBRE NOSOTROS ============ -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+        <div class="container about__grid">
+            <div class="about__media reveal">
+                <figure class="arch">
+                    <img src="img/interior-1280.webp" srcset="img/interior-760.webp 760w, img/interior-1280.webp 1280w" sizes="(min-width: 900px) 40vw, 90vw" width="1280" height="1600" alt="Interior de Sabor Fusión: barra de sushi lacada en negro, farolillos de papel y plantas tropicales sobre un suelo de mosaico cubano" loading="lazy" decoding="async">
+                </figure>
+                <figure class="about__chef">
+                    <img src="img/chef-760.webp" srcset="img/chef-760.webp 760w, img/chef-1280.webp 1280w" sizes="(min-width: 900px) 18vw, 40vw" width="760" height="950" alt="Las manos de un sushiman enrollando un maki con mango y salmón sobre una esterilla de bambú" loading="lazy" decoding="async">
+                </figure>
+            </div>
+
+            <div class="about__text">
+                <h2 class="h2 reveal" id="about-title">Nuestra <em>historia</em></h2>
+                <p class="lead reveal">En el corazón de La Habana, nace Sabor Fusión, un concepto culinario que rompe barreras. Somos pioneros en la creación del sushi cubano, una audaz combinación de la disciplina y elegancia de la cocina japonesa con la pasión, el color y el sabor inconfundible del Caribe.</p>
+                <p class="reveal">Nuestra misión es llevarte a un viaje de sabores inesperados. Utilizamos pescado fresco de nuestras costas, frutas tropicales y especias criollas para reinventar los rollos de sushi clásicos. Cada bocado es una celebración, una fiesta para el paladar.</p>
+                <ul class="pillars reveal">
+                    <li><strong>Técnica japonesa</strong><span>Disciplina y elegancia en cada corte.</span></li>
+                    <li><strong>Alma caribeña</strong><span>Frutas tropicales y especias criollas.</span></li>
+                    <li><strong>Pescado de nuestras costas</strong><span>Fresco, siempre.</span></li>
+                </ul>
+                <p class="about__sign reveal">Ven y vive la experiencia que está redefiniendo la gastronomía en Cuba.</p>
             </div>
         </div>
     </section>
 
-    <!-- Reservations Section -->
-    <section id="reservations" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="bg-black p-8 md:p-12 rounded-lg shadow-2xl max-w-3xl mx-auto reveal-fade">
-                <h2 class="text-5xl font-title text-amber-500 mb-4 text-center">Reserva tu Mesa</h2>
-                <p class="text-center mb-8">Asegura tu lugar en Sabor Fusión y prepárate para una experiencia inolvidable.</p>
-                <form id="reservation-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="Nombre Completo" name="name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
-                        <input type="email" placeholder="Correo Electrónico" name="email" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+    <!-- ============ MENÚ ============ -->
+    <section class="menu section" id="menu" aria-labelledby="menu-title">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="h2 reveal" id="menu-title">Nuestro <em>menú</em></h2>
+                <p class="reveal">Explora nuestras creaciones únicas, preparadas con los ingredientes más frescos y un toque de magia cubana.</p>
+            </div>
+
+            <div class="tabs reveal" role="tablist" aria-label="Categorías del menú">
+                <button class="tab" role="tab" id="tab-fusion" aria-selected="true" aria-controls="panel-fusion" type="button">Rolls Fusión</button>
+                <button class="tab" role="tab" id="tab-clasicos" aria-selected="false" aria-controls="panel-clasicos" tabindex="-1" type="button">Clásicos</button>
+                <button class="tab" role="tab" id="tab-bebidas" aria-selected="false" aria-controls="panel-bebidas" tabindex="-1" type="button">Bebidas</button>
+            </div>
+
+            <!-- Rolls Fusión -->
+            <div class="tabpanel" role="tabpanel" id="panel-fusion" aria-labelledby="tab-fusion">
+                <div class="dishes">
+                    <article class="dish reveal">
+                        <figure><img src="img/roll-habana-vieja-640.webp" srcset="img/roll-habana-vieja-640.webp 640w, img/roll-habana-vieja-1024.webp 1024w" sizes="(min-width: 1000px) 28vw, (min-width: 640px) 44vw, 90vw" width="1024" height="1024" alt="Roll Habana Vieja: langosta, aguacate y plátano maduro frito con salsa de mojo" loading="lazy" decoding="async"></figure>
+                        <div class="dish__body">
+                            <div class="dish__row"><h3>Roll Habana Vieja</h3><p class="price">$18.50</p></div>
+                            <p>Langosta, aguacate y plátano maduro frito, cubierto con salsa de mojo.</p>
+                        </div>
+                    </article>
+                    <article class="dish reveal">
+                        <figure><img src="img/malecon-sunset-640.webp" srcset="img/malecon-sunset-640.webp 640w, img/malecon-sunset-1024.webp 1024w" sizes="(min-width: 1000px) 28vw, (min-width: 640px) 44vw, 90vw" width="1024" height="1024" alt="Malecón Sunset Roll: salmón, queso crema y guayaba envueltos en mango" loading="lazy" decoding="async"></figure>
+                        <div class="dish__body">
+                            <div class="dish__row"><h3>Malecón Sunset Roll</h3><p class="price">$16.00</p></div>
+                            <p>Salmón fresco, queso crema y guayaba, envuelto en mango.</p>
+                        </div>
+                    </article>
+                    <article class="dish reveal">
+                        <figure><img src="img/tropicana-640.webp" srcset="img/tropicana-640.webp 640w, img/tropicana-1024.webp 1024w" sizes="(min-width: 1000px) 28vw, (min-width: 640px) 44vw, 90vw" width="1024" height="1024" alt="Tropicana Roll: camarón tempura, piña asada y coco rallado con salsa de ron añejo" loading="lazy" decoding="async"></figure>
+                        <div class="dish__body">
+                            <div class="dish__row"><h3>Tropicana Roll</h3><p class="price">$17.00</p></div>
+                            <p>Camarón tempura, piña asada y coco rallado, con salsa de ron añejo.</p>
+                        </div>
+                    </article>
+                    <article class="dish reveal">
+                        <figure><img src="img/cerdo-criollo-640.webp" srcset="img/cerdo-criollo-640.webp 640w, img/cerdo-criollo-1024.webp 1024w" sizes="(min-width: 1000px) 28vw, (min-width: 640px) 44vw, 90vw" width="1024" height="1024" alt="Cerdo Criollo Maki: cerdo asado, yuca frita y aguacate con cilantro" loading="lazy" decoding="async"></figure>
+                        <div class="dish__body">
+                            <div class="dish__row"><h3>Cerdo Criollo Maki</h3><p class="price">$15.50</p></div>
+                            <p>Cerdo asado a fuego lento, yuca frita y aguacate, con un toque de cilantro.</p>
+                        </div>
+                    </article>
+                    <article class="dish reveal">
+                        <figure><img src="img/habanero-fury-640.webp" srcset="img/habanero-fury-640.webp 640w, img/habanero-fury-1024.webp 1024w" sizes="(min-width: 1000px) 28vw, (min-width: 640px) 44vw, 90vw" width="1024" height="1024" alt="Habanero Fury: atún picante, pepino y chile habanero con masago" loading="lazy" decoding="async"></figure>
+                        <div class="dish__body">
+                            <div class="dish__row"><h3>Habanero Fury</h3><p class="price">$17.50</p></div>
+                            <p>Atún picante, pepino y chiles habaneros, cubierto con masago. <span class="tag tag--hot">Picante</span></p>
+                        </div>
+                    </article>
+                    <article class="dish reveal">
+                        <figure><img src="img/varadero-breeze-640.webp" srcset="img/varadero-breeze-640.webp 640w, img/varadero-breeze-1024.webp 1024w" sizes="(min-width: 1000px) 28vw, (min-width: 640px) 44vw, 90vw" width="1024" height="1024" alt="Varadero Breeze: pargo fresco, lima y menta envueltos en pepino" loading="lazy" decoding="async"></figure>
+                        <div class="dish__body">
+                            <div class="dish__row"><h3>Varadero Breeze</h3><p class="price">$16.50</p></div>
+                            <p>Pargo fresco, lima y un toque de menta, envuelto en pepino.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Clásicos -->
+            <div class="tabpanel" role="tabpanel" id="panel-clasicos" aria-labelledby="tab-clasicos">
+                <div class="listpanel">
+                    <ul class="menulist">
+                        <li class="reveal"><div class="menulist__row"><h3>California Roll</h3><span class="leader" aria-hidden="true"></span><p class="price">$12.00</p></div><p>Cangrejo, aguacate y pepino.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Spicy Tuna Roll</h3><span class="leader" aria-hidden="true"></span><p class="price">$13.50</p></div><p>Atún, salsa picante y cebollino.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Philadelphia Roll</h3><span class="leader" aria-hidden="true"></span><p class="price">$14.00</p></div><p>Salmón ahumado, queso crema y pepino.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Nigiri de Atún (2 pzs)</h3><span class="leader" aria-hidden="true"></span><p class="price">$8.00</p></div><p>Atún fresco sobre una base de arroz.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Sashimi de Salmón (5 pzs)</h3><span class="leader" aria-hidden="true"></span><p class="price">$15.00</p></div><p>Cortes finos de salmón fresco.</p></li>
+                    </ul>
+                    <figure class="listpanel__media reveal">
+                        <img src="img/nigiri-sashimi-640.webp" srcset="img/nigiri-sashimi-640.webp 640w, img/nigiri-sashimi-1024.webp 1024w" sizes="(min-width: 900px) 40vw, 90vw" width="1024" height="1024" alt="Selección de nigiri de atún y salmón y sashimi de salmón sobre pizarra negra" loading="lazy" decoding="async">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Bebidas -->
+            <div class="tabpanel" role="tabpanel" id="panel-bebidas" aria-labelledby="tab-bebidas">
+                <div class="listpanel">
+                    <ul class="menulist">
+                        <li class="reveal"><div class="menulist__row"><h3>Mojito Fusión</h3><span class="leader" aria-hidden="true"></span><p class="price">$9.00</p></div><p>El clásico cubano con un toque de jengibre y sake.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Daiquirí de Mango</h3><span class="leader" aria-hidden="true"></span><p class="price">$8.50</p></div><p>Ron cubano, mango fresco y un toque de lima.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Sake Caliente</h3><span class="leader" aria-hidden="true"></span><p class="price">$7.00</p></div><p>Tradicional sake japonés servido caliente.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Cerveza Asahi</h3><span class="leader" aria-hidden="true"></span><p class="price">$6.00</p></div><p>Cerveza japonesa premium.</p></li>
+                        <li class="reveal"><div class="menulist__row"><h3>Guarapo Fresco</h3><span class="leader" aria-hidden="true"></span><p class="price">$5.00</p></div><p>Jugo de caña de azúcar recién exprimido.</p></li>
+                    </ul>
+                    <div class="listpanel__duo">
+                        <figure class="reveal"><img src="img/mojito-fusion-640.webp" srcset="img/mojito-fusion-640.webp 640w, img/mojito-fusion-1024.webp 1024w" sizes="(min-width: 900px) 20vw, 45vw" width="1024" height="1024" alt="Mojito Fusión con menta, lima y jengibre junto a una pequeña taza de sake" loading="lazy" decoding="async"></figure>
+                        <figure class="reveal"><img src="img/daiquiri-mango-640.webp" srcset="img/daiquiri-mango-640.webp 640w, img/daiquiri-mango-1024.webp 1024w" sizes="(min-width: 900px) 20vw, 45vw" width="1024" height="1024" alt="Daiquirí de mango en copa con una rodaja de lima" loading="lazy" decoding="async"></figure>
                     </div>
-                     <div class="grid md:grid-cols-3 gap-6">
-                        <input type="date" name="date" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
-                        <input type="time" name="time" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
-                        <input type="number" placeholder="Personas" name="guests" min="1" max="12" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                </div>
+            </div>
+
+            <!-- Menú QR -->
+            <aside class="qr reveal" aria-labelledby="qr-title">
+                <div class="qr__code" role="img" aria-label="Código QR que abre el menú en el móvil">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31" shape-rendering="crispEdges" aria-hidden="true"><path fill="#f3e9d7" d="M0 0h31v31H0z"/><path stroke="#0b0809" d="M1 1.5h7m2 0h1m1 0h1m1 0h1m2 0h1m1 0h3m1 0h7M1 2.5h1m5 0h1m4 0h2m1 0h3m3 0h1m1 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m4 0h2m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h3m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h1m3 0h1m5 0h3m1 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h2m2 0h1m1 0h5m1 0h1m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h1m1 0h2m2 0h1m1 0h1m1 0h1m1 0h1M1 9.5h1m1 0h5m4 0h4m2 0h3m2 0h5M1 10.5h2m2 0h1m2 0h3m1 0h3m3 0h3m2 0h3m3 0h1M3 11.5h5m1 0h1m3 0h4m1 0h1m3 0h1m1 0h1M1 12.5h1m1 0h2m4 0h1m1 0h3m3 0h1m1 0h6m1 0h1m1 0h1M1 13.5h1m1 0h3m1 0h2m1 0h2m2 0h5m1 0h1m1 0h1m3 0h2M5 14.5h2m1 0h2m1 0h2m2 0h1m1 0h1m2 0h6m3 0h1M1 15.5h1m1 0h8m4 0h3m1 0h1m1 0h1m1 0h1m2 0h2M2 16.5h3m1 0h1m1 0h1m2 0h2m2 0h3m1 0h3m3 0h1m2 0h1M1 17.5h1m1 0h1m3 0h2m4 0h1m2 0h1m1 0h1m1 0h1m5 0h2M1 18.5h1m1 0h1m2 0h1m3 0h1m3 0h1m2 0h1m1 0h7m1 0h1m1 0h1M1 19.5h1m1 0h7m1 0h1m1 0h4m2 0h1m1 0h1m2 0h2m1 0h1M1 20.5h1m1 0h1m1 0h1m2 0h1m2 0h1m1 0h2m1 0h2m4 0h2m1 0h1m2 0h1M1 21.5h1m1 0h1m2 0h2m1 0h2m2 0h1m1 0h2m1 0h1m1 0h6m1 0h3M9 22.5h3m5 0h1m1 0h1m1 0h1m3 0h5M1 23.5h7m2 0h3m3 0h1m1 0h1m1 0h2m1 0h1m1 0h3M1 24.5h1m5 0h1m1 0h4m2 0h1m1 0h1m2 0h2m3 0h1m2 0h1M1 25.5h1m1 0h3m1 0h1m1 0h1m8 0h1m2 0h5m1 0h3M1 26.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m3 0h3m4 0h4M1 27.5h1m1 0h3m1 0h1m1 0h1m2 0h2m1 0h3m5 0h6M1 28.5h1m5 0h1m2 0h1m1 0h1m1 0h2m4 0h2m2 0h1m1 0h1m1 0h1M1 29.5h7m1 0h4m1 0h1m1 0h3m1 0h1m4 0h3"/></svg>
+                </div>
+                <div>
+                    <h3 id="qr-title">Tu menú, en tu móvil</h3>
+                    <p>Escanea el código en la mesa y consulta la carta completa, con precios al día. Sin descargar nada.</p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ============ CREA TU ROLL ============ -->
+    <section class="builder section" id="roll-creator" aria-labelledby="builder-title">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="h2 reveal" id="builder-title">Crea tu propio <em>roll fusión</em></h2>
+                <p class="reveal">Elige tus ingredientes y mira cómo se arma tu roll. Por un coste adicional, nuestros chefs pueden convertir tu idea en una obra maestra culinaria.</p>
+            </div>
+
+            <div class="builder__grid">
+                <div class="builder__preview reveal">
+                    <svg class="roll" id="roll-svg" viewBox="0 0 320 320" role="img" aria-label="Vista del corte de tu roll personalizado">
+                        <circle cx="160" cy="160" r="152" class="roll__plate"/>
+                        <circle cx="160" cy="160" r="122" class="roll__nori"/>
+                        <circle cx="160" cy="160" r="108" id="roll-rice"/>
+                        <g id="roll-fill">
+                            <circle cx="136" cy="150" r="36" id="roll-protein"/>
+                            <circle cx="196" cy="144" r="27" id="roll-tropical"/>
+                            <circle cx="164" cy="194" r="24" class="roll__green"/>
+                            <circle cx="160" cy="160" r="15" class="roll__cream"/>
+                        </g>
+                        <g id="roll-crunch"></g>
+                        <path id="roll-sauce" d="M84 96 Q160 40 236 96" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 12"/>
+                    </svg>
+                    <div class="builder__result" aria-live="polite">
+                        <p class="builder__kicker" id="roll-kicker">Tu creación</p>
+                        <h3 class="builder__name" id="roll-name">Roll Malecón</h3>
+                        <p class="builder__desc" id="roll-desc"></p>
+                        <p class="builder__price"><span>Precio orientativo</span> <strong id="roll-price">$16.00</strong></p>
                     </div>
-                    <input type="text" id="occasion-input" placeholder="Ocasión (ej: Aniversario, Cumpleaños)" name="occasion" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                    <div class="relative">
-                        <textarea id="special-request" placeholder="¿Alguna petición especial?" name="message" rows="8" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
-                        <button type="button" id="generate-message-btn" class="absolute bottom-3 right-3 bg-gray-700 text-amber-500 font-bold py-1 px-3 rounded-full hover:bg-gray-600 transition text-sm">✨ Generar Mensaje</button>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-amber-500 text-black font-bold py-3 px-10 rounded-full hover:bg-amber-600 transition duration-300 transform hover:scale-105">Enviar Reserva</button>
+                </div>
+
+                <form class="builder__form reveal" id="roll-form" onsubmit="return false">
+                    <fieldset data-group="base"><legend>1. Arroz</legend><div class="chips" id="opts-base"></div></fieldset>
+                    <fieldset data-group="protein"><legend>2. Proteína</legend><div class="chips" id="opts-protein"></div></fieldset>
+                    <fieldset data-group="tropical"><legend>3. Toque tropical</legend><div class="chips" id="opts-tropical"></div></fieldset>
+                    <fieldset data-group="sauce"><legend>4. Salsa</legend><div class="chips" id="opts-sauce"></div></fieldset>
+                    <fieldset data-group="crunch"><legend>5. Crujiente</legend><div class="chips" id="opts-crunch"></div></fieldset>
+                    <div class="builder__actions">
+                        <button class="btn btn--gold btn--lg" type="button" id="roll-add">Añadir a mi reserva</button>
+                        <a class="btn btn--ghost btn--lg" id="roll-wa" href="#" target="_blank" rel="noopener noreferrer">Pedirlo por WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
                     </div>
                 </form>
-                <div id="form-message" class="mt-6 text-center"></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <footer id="contact" class="py-16 bg-black">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-title text-white mb-8">Sabor Fusión</h2>
-            <div class="grid md:grid-cols-3 gap-8 mb-10">
-                <div>
-                    <h3 class="font-bold text-amber-500 text-xl mb-2">Dirección</h3>
-                    <p>Calle Fusión 123, Vedado,</p>
-                    <p>La Habana, Cuba</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-amber-500 text-xl mb-2">Horario</h3>
-                    <p>Martes - Domingo</p>
-                    <p>12:00 PM - 11:00 PM</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-amber-500 text-xl mb-2">Contacto</h3>
-                    <p>reservas@saborfusion.cu</p>
-                    <p>+53 7 123 4567</p>
-                </div>
+    <!-- ============ GALERÍA ============ -->
+    <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="h2 reveal" id="gallery-title">Galería de <em>sabores</em></h2>
             </div>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-gray-400 hover:text-amber-500 transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
-                <a href="#" class="text-gray-400 hover:text-amber-500 transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
-                <a href="#" class="text-gray-400 hover:text-amber-500 transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.794 2.013 10.148 2 12.315 2zm-1.163 1.943c-1.049.045-1.71.21-2.227.412a3.001 3.001 0 00-1.064 1.064c-.202.517-.367 1.178-.412 2.227-.045 1.025-.058 1.35-.058 3.659s.013 2.634.058 3.659c.045 1.049.21 1.71.412 2.227a3.001 3.001 0 001.064 1.064c.517.202 1.178.367 2.227.412 1.025.045 1.35.058 3.659.058s2.634-.013 3.659-.058c1.049-.045 1.71-.21 2.227-.412a3.001 3.001 0 001.064-1.064c.202-.517.367-1.178-.412-2.227.045-1.025.058-1.35.058-3.659s-.013-2.634-.058-3.659c-.045-1.049-.21-1.71-.412-2.227a3.001 3.001 0 00-1.064-1.064c-.517-.202-1.178-.367-2.227-.412-1.025-.045-1.35-.058-3.659-.058zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z" clip-rule="evenodd" /></svg></a>
+            <div class="bento">
+                <button class="bento__item bento__a reveal" type="button" data-lightbox data-full="img/terrace-1600.webp" data-caption="Noches mágicas">
+                    <img src="img/terrace-900.webp" srcset="img/terrace-900.webp 900w, img/terrace-1600.webp 1600w" sizes="(min-width: 900px) 58vw, 92vw" width="1600" height="900" alt="Terraza de Sabor Fusión al anochecer, con luces entre las palmas reales y un cerezo en flor" loading="lazy" decoding="async">
+                    <span class="bento__cap">Noches mágicas</span>
+                </button>
+                <button class="bento__item bento__b reveal" type="button" data-lightbox data-full="img/roll-habana-vieja-1024.webp" data-caption="Roll Habana">
+                    <img src="img/roll-habana-vieja-640.webp" srcset="img/roll-habana-vieja-640.webp 640w, img/roll-habana-vieja-1024.webp 1024w" sizes="(min-width: 900px) 40vw, 46vw" width="1024" height="1024" alt="Roll Habana Vieja con langosta y plátano maduro" loading="lazy" decoding="async">
+                    <span class="bento__cap">Roll Habana</span>
+                </button>
+                <button class="bento__item bento__c reveal" type="button" data-lightbox data-full="img/chef-1280.webp" data-caption="Arte culinario">
+                    <img src="img/chef-760.webp" srcset="img/chef-760.webp 760w, img/chef-1280.webp 1280w" sizes="(min-width: 900px) 30vw, 46vw" width="760" height="950" alt="Un sushiman enrolla un maki con mango sobre una esterilla de bambú" loading="lazy" decoding="async">
+                    <span class="bento__cap">Arte culinario</span>
+                </button>
+                <button class="bento__item bento__d reveal" type="button" data-lightbox data-full="img/mojito-fusion-1024.webp" data-caption="Mojito Fusión">
+                    <img src="img/mojito-fusion-640.webp" srcset="img/mojito-fusion-640.webp 640w, img/mojito-fusion-1024.webp 1024w" sizes="(min-width: 900px) 30vw, 46vw" width="1024" height="1024" alt="Mojito Fusión con menta y jengibre" loading="lazy" decoding="async">
+                    <span class="bento__cap">Mojito Fusión</span>
+                </button>
+                <button class="bento__item bento__e reveal" type="button" data-lightbox data-full="img/nigiri-sashimi-1024.webp" data-caption="Nuestra selección">
+                    <img src="img/nigiri-sashimi-640.webp" srcset="img/nigiri-sashimi-640.webp 640w, img/nigiri-sashimi-1024.webp 1024w" sizes="(min-width: 900px) 30vw, 46vw" width="1024" height="1024" alt="Selección de nigiri y sashimi" loading="lazy" decoding="async">
+                    <span class="bento__cap">Nuestra selección</span>
+                </button>
+                <button class="bento__item bento__f reveal" type="button" data-lightbox data-full="img/ingredients-1200.webp" data-caption="Frescura garantizada">
+                    <img src="img/ingredients-700.webp" srcset="img/ingredients-700.webp 700w, img/ingredients-1200.webp 1200w" sizes="(min-width: 900px) 58vw, 92vw" width="1200" height="1200" alt="Ingredientes frescos: atún, salmón, mango, guayaba, habanero, lima y flores de hibisco" loading="lazy" decoding="async">
+                    <span class="bento__cap">Frescura garantizada</span>
+                </button>
             </div>
-            <p class="text-gray-500">&copy; 2024 Sabor Fusión. Todos los derechos reservados. Diseñado con pasión.</p>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- DATA ---
-            const menuData = {
-                fusion: [
-                    { name: "Roll Habana Vieja", desc: "Langosta, aguacate y plátano maduro frito, cubierto con salsa de mojo.", price: "18.50" },
-                    { name: "Malecón Sunset Roll", desc: "Salmón fresco, queso crema y guayaba, envuelto en mango.", price: "16.00" },
-                    { name: "Tropicana Roll", desc: "Camarón tempura, piña asada y coco rallado, con salsa de ron añejo.", price: "17.00" },
-                    { name: "Cerdo Criollo Maki", desc: "Cerdo asado a fuego lento, yuca frita y aguacate, con un toque de cilantro.", price: "15.50" },
-                    { name: "Fidel's Fury (Picante)", desc: "Atún picante, pepino y chiles habaneros, cubierto con masago.", price: "17.50" },
-                    { name: "Varadero Breeze", desc: "Pargo fresco, lima, y un toque de menta, envuelto en pepino.", price: "16.50" },
-                ],
-                clasicos: [
-                    { name: "California Roll", desc: "Cangrejo, aguacate y pepino.", price: "12.00" },
-                    { name: "Spicy Tuna Roll", desc: "Atún, salsa picante y cebollino.", price: "13.50" },
-                    { name: "Philadelphia Roll", desc: "Salmón ahumado, queso crema y pepino.", price: "14.00" },
-                    { name: "Nigiri de Atún (2 pzs)", desc: "Atún fresco sobre una base de arroz.", price: "8.00" },
-                    { name: "Sashimi de Salmón (5 pzs)", desc: "Cortes finos de salmón fresco.", price: "15.00" },
-                ],
-                bebidas: [
-                    { name: "Mojito Fusión", desc: "El clásico cubano con un toque de jengibre y sake.", price: "9.00" },
-                    { name: "Daiquirí de Mango", desc: "Ron cubano, mango fresco y un toque de lima.", price: "8.50" },
-                    { name: "Sake Caliente", desc: "Tradicional sake japonés servido caliente.", price: "7.00" },
-                    { name: "Cerveza Asahi", desc: "Cerveza japonesa premium.", price: "6.00" },
-                    { name: "Guarapo Fresco", desc: "Jugo de caña de azúcar recién exprimido.", price: "5.00" },
-                ]
-            };
-            
-            // --- GEMINI API SETUP ---
-            const API_KEY = ""; // Leave empty, handled by the environment
-            const API_URL_GEMINI = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
-            
-            // --- API Call with Exponential Backoff ---
-            async function fetchWithBackoff(url, payload, retries = 3, delay = 1000) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return await response.json();
-                } catch (error) {
-                    if (retries > 0) {
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        return fetchWithBackoff(url, payload, retries - 1, delay * 2);
-                    } else {
-                        console.error("API call failed after multiple retries:", error);
-                        return null;
-                    }
-                }
-            }
+    <!-- ============ RESERVAS ============ -->
+    <section class="reserve section" id="reservations" aria-labelledby="reserve-title">
+        <div class="container reserve__grid">
+            <div class="reserve__intro">
+                <h2 class="h2 reveal" id="reserve-title">Reserva tu <em>mesa</em></h2>
+                <p class="lead reveal">Asegura tu lugar en Sabor Fusión y prepárate para una experiencia inolvidable.</p>
+                <dl class="hours reveal">
+                    <div><dt>Martes a domingo</dt><dd>12:00 a 23:00</dd></div>
+                    <div><dt>Lunes</dt><dd>Cerrado</dd></div>
+                </dl>
+                <p class="reserve__demo reveal">Esta web es una demo creada por <a href="https://yankitellez.com" target="_blank" rel="noopener noreferrer">Yanki Tellez</a>: tu reserva se abre en su WhatsApp para que veas cómo la recibiría un restaurante.</p>
+            </div>
 
-            // --- HEADER SCROLL EFFECT ---
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-black', 'shadow-lg');
-                } else {
-                    header.classList.remove('bg-black', 'shadow-lg');
-                }
-            });
+            <div class="reserve__card reveal">
+                <div class="roll-note" id="roll-note" hidden>
+                    <p><strong>Roll personalizado:</strong> <span id="roll-note-text"></span></p>
+                    <button type="button" class="linklike" id="roll-note-remove">Quitar</button>
+                </div>
 
-            // --- MOBILE MENU ---
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-open-icon');
-            const closeIcon = document.getElementById('menu-close-icon');
-            const mobileLinks = document.querySelectorAll('.nav-link-mobile');
-
-            const toggleMenu = () => {
-                mobileMenu.classList.toggle('hidden');
-                openIcon.classList.toggle('hidden');
-                closeIcon.classList.toggle('hidden');
-                document.body.classList.toggle('overflow-hidden');
-            };
-            
-            mobileMenuBtn.addEventListener('click', toggleMenu);
-            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-
-            // --- ACTIVE NAV LINK ON SCROLL ---
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 60) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-
-            // --- MENU TAB LOGIC ---
-            const menuTabs = document.querySelectorAll('.menu-tab');
-            const menuContent = document.getElementById('menu-content');
-
-            function renderMenu(category) {
-                menuContent.innerHTML = '';
-                menuData[category].forEach(item => {
-                    const menuItemHTML = `
-                        <div class="text-left p-6 bg-gray-900 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                            <div class="flex justify-between items-baseline">
-                                <h3 class="text-xl font-bold text-white">${item.name}</h3>
-                                <p class="text-xl font-bold text-amber-500">$${item.price}</p>
-                            </div>
-                            <p class="text-gray-400 mt-2">${item.desc}</p>
+                <form id="reservation-form" novalidate>
+                    <div class="field">
+                        <label for="f-name">Nombre completo</label>
+                        <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+                        <p class="error" id="e-name" role="alert"></p>
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="f-date">Fecha</label>
+                            <input id="f-date" name="date" type="date" required aria-describedby="e-date">
+                            <p class="error" id="e-date" role="alert"></p>
                         </div>
-                    `;
-                    menuContent.innerHTML += menuItemHTML;
-                });
-            }
+                        <div class="field">
+                            <label for="f-time">Hora</label>
+                            <select id="f-time" name="time" required aria-describedby="e-time"><option value="">Elige hora</option></select>
+                            <p class="error" id="e-time" role="alert"></p>
+                        </div>
+                        <div class="field">
+                            <label for="f-guests">Personas</label>
+                            <input id="f-guests" name="guests" type="number" min="1" max="12" inputmode="numeric" required aria-describedby="e-guests">
+                            <p class="error" id="e-guests" role="alert"></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="f-occasion">Ocasión</label>
+                        <select id="f-occasion" name="occasion">
+                            <option value="">Sin ocasión especial</option>
+                            <option>Cumpleaños</option>
+                            <option>Aniversario</option>
+                            <option>Cena romántica</option>
+                            <option>Reunión de amigos</option>
+                            <option>Cena de negocios</option>
+                            <option>Otra celebración</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <div class="field__top">
+                            <label for="f-notes">Petición especial</label>
+                            <button type="button" class="linklike" id="suggest-btn">Sugerir mensaje</button>
+                        </div>
+                        <textarea id="f-notes" name="notes" rows="4" placeholder="Alergias, mesa en la terraza, una sorpresa..."></textarea>
+                    </div>
+                    <button class="btn btn--gold btn--lg btn--block" type="submit">Revisar reserva</button>
+                </form>
 
-            menuTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    menuTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    renderMenu(tab.dataset.target);
-                });
-            });
+                <div class="summary" id="summary" hidden aria-live="polite">
+                    <h3>Revisa tu reserva</h3>
+                    <dl id="summary-list"></dl>
+                    <div class="summary__actions">
+                        <a class="btn btn--gold btn--lg" id="summary-wa" href="#" target="_blank" rel="noopener noreferrer">Enviar por WhatsApp</a>
+                        <button class="btn btn--ghost btn--lg" type="button" id="summary-edit">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            renderMenu('fusion');
+</main>
 
-            // --- GEMINI: ROLL CREATOR LOGIC ---
-            const generateRollBtn = document.getElementById('generate-roll-btn');
-            const ingredientInput = document.getElementById('ingredient-input');
-            const rollResultContainer = document.getElementById('roll-creator-result');
+<!-- ============ CONTACTO ============ -->
+<footer class="footer" id="contact">
+    <div class="container">
+        <div class="footer__top">
+            <p class="footer__brand"><span class="seal" aria-hidden="true">SF</span> Sabor Fusión</p>
+            <div class="footer__cols">
+                <div>
+                    <h3>Dirección</h3>
+                    <p>Calle Fusión 123, Vedado,<br>La Habana, Cuba</p>
+                </div>
+                <div>
+                    <h3>Horario</h3>
+                    <p>Martes - Domingo<br>12:00 PM - 11:00 PM</p>
+                </div>
+                <div>
+                    <h3>Contacto</h3>
+                    <p><a href="mailto:reservas@saborfusion.cu">reservas@saborfusion.cu</a><br><a href="tel:+5371234567">+53 7 123 4567</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <iframe title="Mapa de La Habana, barrio del Vedado" src="https://www.google.com/maps?q=Vedado,+La+Habana,+Cuba&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <p class="footer__legal">&copy; 2026 Sabor Fusión. Imágenes generadas con IA. Web creada por <a href="https://yankitellez.com" target="_blank" rel="noopener noreferrer">Yanki Tellez</a>.</p>
+    </div>
+</footer>
 
-            generateRollBtn.addEventListener('click', async () => {
-                const ingredients = ingredientInput.value.trim();
-                if (!ingredients) {
-                    rollResultContainer.innerHTML = '<p class="text-red-400">Por favor, introduce al menos un ingrediente.</p>';
-                    return;
-                }
+<!-- Barra de acción en móvil -->
+<div class="actionbar" id="actionbar" aria-hidden="true">
+    <a class="btn btn--ghost" href="#menu" tabindex="-1">Ver menú</a>
+    <a class="btn btn--gold" href="#reservations" tabindex="-1">Reservar</a>
+</div>
 
-                rollResultContainer.innerHTML = '<div class="loader"></div>';
+<!-- Visor de la galería -->
+<dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+    <figure>
+        <img id="lightbox-img" alt="">
+        <figcaption id="lightbox-cap"></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__close" type="button" id="lb-close" aria-label="Cerrar">&times;</button>
+    <button class="lightbox__btn lightbox__prev" type="button" id="lb-prev" aria-label="Anterior">&lsaquo;</button>
+    <button class="lightbox__btn lightbox__next" type="button" id="lb-next" aria-label="Siguiente">&rsaquo;</button>
+</dialog>
 
-                const prompt = `Eres un chef experto en sushi fusión cubano. Un cliente quiere un nuevo roll con los siguientes ingredientes: ${ingredients}. Crea un nombre creativo y una descripción apetitosa para este roll. El nombre debe sonar cubano y japonés a la vez.`;
-                
-                const payload = {
-                    contents: [{ role: "user", parts: [{ text: prompt }] }],
-                    generationConfig: {
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                            type: "OBJECT",
-                            properties: {
-                                "rollName": { "type": "STRING" },
-                                "rollDescription": { "type": "STRING" }
-                            },
-                            required: ["rollName", "rollDescription"]
-                        }
-                    }
-                };
-
-                const result = await fetchWithBackoff(API_URL_GEMINI, payload);
-                
-                if (result && result.candidates && result.candidates[0].content.parts[0].text) {
-                    try {
-                        const jsonResponse = JSON.parse(result.candidates[0].content.parts[0].text);
-                        rollResultContainer.innerHTML = `
-                            <h4 class="text-2xl font-bold text-amber-500">${jsonResponse.rollName}</h4>
-                            <p class="text-gray-300 mt-2">${jsonResponse.rollDescription}</p>
-                        `;
-                    } catch (e) {
-                        rollResultContainer.innerHTML = '<p class="text-red-400">Hubo un error al procesar la respuesta. Inténtalo de nuevo.</p>';
-                    }
-                } else {
-                    rollResultContainer.innerHTML = '<p class="text-red-400">No se pudo generar una creación. Por favor, intenta con otros ingredientes.</p>';
-                }
-            });
-
-            // --- RESERVATION FORM LOGIC ---
-            const reservationForm = document.getElementById('reservation-form');
-            const formMessage = document.getElementById('form-message');
-            const dateInput = reservationForm.elements['date'];
-            const timeInput = reservationForm.elements['time'];
-
-            // Set min date to today
-            const setMinDate = () => {
-                const today = new Date().toISOString().split('T')[0];
-                dateInput.setAttribute('min', today);
-            };
-
-            // Update time constraints based on selected date
-            const updateMinTime = () => {
-                const today = new Date();
-                const selectedDate = new Date(dateInput.value + 'T00:00:00');
-                
-                // Compare dates without time component
-                today.setHours(0, 0, 0, 0);
-                
-                if (selectedDate.getTime() === today.getTime()) {
-                    const now = new Date();
-                    const hours = String(now.getHours()).padStart(2, '0');
-                    const minutes = String(now.getMinutes()).padStart(2, '0');
-                    timeInput.setAttribute('min', `${hours}:${minutes}`);
-                } else {
-                    timeInput.removeAttribute('min');
-                }
-            };
-
-            setMinDate();
-            dateInput.addEventListener('input', updateMinTime);
-
-            // --- GEMINI: RESERVATION MESSAGE GENERATOR ---
-            const generateMessageBtn = document.getElementById('generate-message-btn');
-            const occasionInput = document.getElementById('occasion-input');
-            const specialRequestTextarea = document.getElementById('special-request');
-
-            generateMessageBtn.addEventListener('click', async () => {
-                const name = reservationForm.elements['name'].value.trim();
-                const date = dateInput.value;
-                const time = timeInput.value;
-                const guests = reservationForm.elements['guests'].value;
-                const occasion = occasionInput.value.trim();
-
-                if (!name || !date || !time || !guests || !occasion) {
-                    specialRequestTextarea.value = '';
-                    specialRequestTextarea.placeholder = "Por favor, rellena los campos de nombre, fecha, hora, personas y ocasión antes de generar el mensaje.";
-                    return;
-                }
-                
-                specialRequestTextarea.value = '';
-                specialRequestTextarea.placeholder = "Generando mensaje...";
-                generateMessageBtn.disabled = true;
-
-                const prompt = `Escribe una petición especial creativa y amable para una reserva en un restaurante para celebrar un(a) "${occasion}". El tono debe ser educado y festivo. La petición debe ser un párrafo corto. Ejemplo para un cumpleaños: "Nuestra reserva es para celebrar un feliz cumpleaños. Nos encantaría si pudieran ayudarnos a hacer la velada un poco más mágica, tal vez con una mesa con encanto. ¡Estamos muy emocionados y agradecemos cualquier detalle que puedan ofrecer!"`;
-                
-                const payload = {
-                    contents: [{ role: "user", parts: [{ text: prompt }] }]
-                };
-
-                const result = await fetchWithBackoff(API_URL_GEMINI, payload);
-
-                if (result && result.candidates && result.candidates[0].content.parts[0].text) {
-                    const aiGeneratedRequest = result.candidates[0].content.parts[0].text;
-                    const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-                    const guestsText = guests > 1 ? `${guests} personas` : `${guests} persona`;
-
-                    const fullMessage = `Estimado equipo de Sabor Fusión,
-
-Tenemos una reserva a nombre de ${name} para el ${formattedDate} a las ${time} para ${guestsText}.
-
-${aiGeneratedRequest}
-
-Saludos cordiales,
-${name}`;
-                    specialRequestTextarea.value = fullMessage;
-
-                } else {
-                    specialRequestTextarea.placeholder = "No se pudo generar el mensaje. Escríbelo tú mismo.";
-                }
-                generateMessageBtn.disabled = false;
-            });
-
-            // --- FORM SUBMISSION ---
-            reservationForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                formMessage.textContent = '¡Gracias por tu reserva! Te hemos enviado un correo de confirmación.';
-                formMessage.className = 'mt-6 text-center text-green-400';
-                reservationForm.reset();
-                timeInput.removeAttribute('min'); // Reset time constraint on form reset
-                setTimeout(() => {
-                    formMessage.textContent = '';
-                }, 5000);
-            });
-
-            // --- SCROLLREVEAL ANIMATIONS ---
-            const sr = ScrollReveal({
-                distance: '60px',
-                duration: 2500,
-                delay: 400,
-                reset: false,
-            });
-
-            sr.reveal('.animate-fade-in-down', { delay: 600, origin: 'top' });
-            sr.reveal('.animate-fade-in-up', { delay: 800, origin: 'bottom' });
-            sr.reveal('.reveal-left', { origin: 'left' });
-            sr.reveal('.reveal-right', { origin: 'right' });
-            sr.reveal('.reveal-fade', { opacity: 0, interval: 100 });
-            sr.reveal('.reveal-zoom', { scale: 0.8, interval: 150 });
-
-        });
-    </script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
