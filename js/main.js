@@ -7,7 +7,7 @@
 
     // WhatsApp que recibe las reservas y los pedidos de roll. En esta demo es el de Yanki Tellez.
     // Para un restaurante real: número con prefijo de país, sin "+" ni espacios (ej. 5351234567).
-    const WHATSAPP = '447495484687';
+    const WHATSAPP = '34654092377';
 
     const $ = (s, c = document) => c.querySelector(s);
     const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
